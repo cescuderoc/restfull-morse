@@ -1,0 +1,136 @@
+{
+	"info": {
+		"_postman_id": "d968a06d-fe69-488c-b36f-8de23e0a907d",
+		"name": "Morse",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "11296730"
+	},
+	"item": [
+		{
+			"name": "local",
+			"item": [
+				{
+					"name": "parrafo",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"parrafo\":\"CH E\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/parrafo",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"parrafo"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "morse",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"morse\":\"-.-. .... / . \"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/morse",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"morse"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "develop",
+			"item": [
+				{
+					"name": "parrafo",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"parrafo\":\"hola a todos en binario\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/parrafo",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"parrafo"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "morse",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"morse\":\".... --- .-.. .- / .- / - --- -.. --- ... / . -. / -... .. -. .- .-. .. --- \"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/morse",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"morse"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
