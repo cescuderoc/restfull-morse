@@ -1,5 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+const cors = require('cors');
+var morse = require('morse-node').create();
 
 const app = express();
 
@@ -13,33 +15,21 @@ router.get('/', (req, res) => {
   res.json({ message: 'API RESTful funcionando correctamente' });
 });
 
-router.route('/usuarios')
-  .get((req, res) => {
-    // Aquí se obtendrían los usuarios desde una base de datos o un archivo, por ejemplo
-    const usuarios = [{ id: 1, nombre: 'Juan' }, { id: 2, nombre: 'María' }];
-    res.json(usuarios);
-  })
-  .post((req, res) => {
-    // Aquí se crearía un nuevo usuario con los datos que llegan en el cuerpo de la petición
-    const nuevoUsuario = { id: 3, nombre: req.body.nombre };
-    res.status(201).json(nuevoUsuario);
-  });
+app.post('/api/parrafo', (req, res) => {
+  const a = req.body.parrafo
+  console.log(a);
+  var encoded = morse.encode(a);
+  console.log(encoded);
+  res.json(encoded);
+});
 
-router.route('/usuarios/:id')
-  .get((req, res) => {
-    // Aquí se buscaría y devolvería el usuario con el ID especificado en la URL
-    const usuario = { id: req.params.id, nombre: 'Juan' };
-    res.json(usuario);
-  })
-  .put((req, res) => {
-    // Aquí se actualizaría el usuario con el ID especificado en la URL con los datos que llegan en el cuerpo de la petición
-    const usuarioActualizado = { id: req.params.id, nombre: req.body.nombre };
-    res.json(usuarioActualizado);
-  })
-  .delete((req, res) => {
-    // Aquí se eliminaría el usuario con el ID especificado en la URL
-    res.status(204).send();
-  });
+app.post('/api/morse', (req, res) => {
+  const a = req.body.morse
+  console.log(a);
+  var decoded = morse.decode(a);
+  console.log(decoded);
+  res.json(decoded);
+});
 
 app.use('/api', router);
 
