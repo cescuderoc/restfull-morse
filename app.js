@@ -2,16 +2,17 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 var morse = require('morse-node').create();
- 
+
 const app = express();
 
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-app.use(cors());
 
-// Rutas de la API RESTful
-app.get('/api/hola', (req, res) => {
-  res.send('Hola, mundo!');
+const port = process.env.PORT || 3000;
+const router = express.Router();
+
+router.get('/', (req, res) => {
+  res.json({ message: 'API RESTful funcionando correctamente' });
 });
 
 app.post('/api/parrafo', (req, res) => {
@@ -30,8 +31,7 @@ app.post('/api/morse', (req, res) => {
   res.json(decoded);
 });
 
-// Configuración del servidor
-const port = process.env.PORT || 3000;
-app.listen(port, () => {
-  console.log(`http://localhost:${port}`);
-});
+app.use('/api', router);
+
+app.listen(port);
+console.log(`API RESTful funcionando en http://localhost:${port}/api`);
